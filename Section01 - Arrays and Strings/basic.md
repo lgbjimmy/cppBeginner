@@ -6,7 +6,7 @@
 * [StringBuilder](https://github.com/lgbjimmy/cppBeginner/edit/section/Section01%20-%20Arrays%20and%20Strings/basic.md#stringbuilder)
 
 > __Note:__ 
-> These class are not included as a subset of C++ STL. I try to find the most similar class and make notes of these. 
+> Since these class are Java Class, I try to find the most similar subset from C++ STL and make notes of these.  
 __________
 
 
@@ -20,8 +20,10 @@ __________
    * access element directly
    * definition
        * [map](https://en.cppreference.com/w/cpp/container/map)
+         * [initailized](https://en.cppreference.com/w/cpp/container/map/operator_at) 
        * [pair](https://en.cppreference.com/w/cpp/utility/pair)
    * example
+       * **A**
        ```
             std::map <std::string, int> m {
                {"James", 6},
@@ -44,7 +46,21 @@ __________
             m.clear();
             // empty
             m.empty();
-        ```
+       ```
+       * **B**
+       ```
+            std::list<int> in {12,11,12,21,41,43,21};
+            int i = 0;
+            
+            std::map<int,std::list<int>> vm;
+            for (auto it = in.begin(); it != in.end(); it++)
+                vm[*it].push_back(i++);
+                
+            i = 0;
+            std::multi_map<int,int> vmm;
+            for (auto it = in.begin(); it != in.end(); it++)
+                vmm.insert(std::make_pair(*it, i++));
+       ```
 __________
 
 ### **ArrayLists**
@@ -92,3 +108,7 @@ __________
   `c++` `std::string`
   * definition
       * [string](https://en.cppreference.com/w/cpp/string/basic_string)
+  * additional info
+      * [KMP](http://wiki.csie.ncku.edu.tw/acm/course/String_Matching#kmp)
+      * [Z algorithm](http://wiki.csie.ncku.edu.tw/acm/course/String_Matching#z-algorithm)
+
